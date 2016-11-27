@@ -1,6 +1,7 @@
 
 package com.airhacks.statustest.boundary;
 
+import static java.util.Optional.ofNullable;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -21,11 +22,27 @@ public class StatusesResources {
     private static final String RESPONSE = "+";
 
     @GET
-    @PUT
-    @POST
-    @DELETE
-    @OPTIONS
     public Response get(@HeaderParam(STATUS_PARAM) int status) {
+        return createResponse(status);
+    }
+
+    @POST
+    public Response post(String body, @HeaderParam(STATUS_PARAM) int status) {
+        return createResponseWithBody(body, status);
+    }
+
+    @PUT
+    public Response put(String body, @HeaderParam(STATUS_PARAM) int status) {
+        return createResponseWithBody(body, status);
+    }
+
+    @DELETE
+    public Response delete(@HeaderParam(STATUS_PARAM) int status) {
+        return createResponse(status);
+    }
+
+    @OPTIONS
+    public Response options(@HeaderParam(STATUS_PARAM) int status) {
         return createResponse(status);
     }
 
@@ -36,5 +53,11 @@ public class StatusesResources {
                 build();
     }
 
+    Response createResponseWithBody(String body, int status) {
+        return Response.
+                status(status).
+                entity(ofNullable(body).orElse(RESPONSE)).
+                build();
+    }
 
 }
