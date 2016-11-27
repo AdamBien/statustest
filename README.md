@@ -27,7 +27,7 @@ The requests body is sent back as response:
 
 response:
 
-`
+```
 HTTP/1.1 201 Created
 Server: Payara Micro #badassfish
 Content-Type: text/plain
@@ -35,5 +35,4 @@ Date: Sun, 27 Nov 2016 09:11:38 GMT
 Content-Length: 5
 
 input
-`
 
