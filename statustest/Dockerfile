@@ -1,2 +1,3 @@
 FROM airhacks/payara-micro
-COPY ./target/statustest.war ${DEPLOYMENT_DIR}
+ENV ARCHIVE_NAME statustest.war
+COPY ./target/${ARCHIVE_NAME} ${DEPLOYMENT_DIR}
