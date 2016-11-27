@@ -25,7 +25,7 @@ public class StatusesResourceIT {
     @Before
     public void init() {
         this.client = ClientBuilder.newClient();
-        this.tut = this.client.target("http://localhost:8080/statustext/resources/statuses");
+        this.tut = this.client.target("http://localhost:8080/statustest/resources/statuses");
     }
 
     @Test
