@@ -10,6 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Rule;
 import org.junit.Test;
+import static com.airhacks.rulz.jaxrsclient.HttpMatchers.statusCode;
 
 /**
  *
@@ -37,7 +38,7 @@ public class StatusesResourceIT {
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 get();
-        assertThat(response.getStatus(), is(expected));
+        assertThat(response, is(statusCode(expected)));
     }
 
     @Test
@@ -55,7 +56,7 @@ public class StatusesResourceIT {
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 post(Entity.text(""));
-        assertThat(response.getStatus(), is(expected));
+        assertThat(response, is(statusCode(expected)));
     }
 
     @Test
@@ -73,7 +74,7 @@ public class StatusesResourceIT {
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 put(Entity.text(""));
-        assertThat(response.getStatus(), is(expected));
+        assertThat(response, is(statusCode(expected)));
     }
 
     @Test
@@ -84,14 +85,14 @@ public class StatusesResourceIT {
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 delete();
-        assertThat(response.getStatus(), is(expected));
+        assertThat(response, is(statusCode(expected)));
 
         expected = 203;
         response = client.target().
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 delete();
-        assertThat(response.getStatus(), is(expected));
+        assertThat(response, is(statusCode(expected)));
     }
 
     @Test
@@ -102,14 +103,14 @@ public class StatusesResourceIT {
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 options();
-        assertThat(response.getStatus(), is(expected));
+        assertThat(response, is(statusCode(expected)));
 
         expected = 203;
         response = client.target().
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 options();
-        assertThat(response.getStatus(), is(expected));
+        assertThat(response, is(statusCode(expected)));
     }
 
 }

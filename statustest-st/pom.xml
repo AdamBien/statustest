@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.airhacks.rulz</groupId>
             <artifactId>jaxrsclient</artifactId>
-            <version>0.0.4</version>
+            <version>0.0.5-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
