@@ -18,3 +18,6 @@ spec:
     jenkinsPipelineStrategy:
       jenkinsfilePath: Jenkinsfile
     type: JenkinsPipeline
+    env:
+    - SERVICE_URI: HELLO
+      value: http://statustest.airhacks.svc:8080
