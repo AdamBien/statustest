@@ -25,6 +25,7 @@ public class StatusesResourceIT {
     @Before
     public void initClient() {
         this.tut = ClientBuilder.newClient().target(serviceUri() + "/statustest/resources/statuses");
+        System.out.println("Using service uri: " + this.tut.getUri().toString());
     }
 
     static String serviceUri() {
