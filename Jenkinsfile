@@ -33,7 +33,7 @@ pipeline{
                     openshift.withCluster(){
                         openshift.withProject(){
                             def build = openshift.selector("bc", applicationName);
-                            def startedBuild = build.startBuild("--from-file=\"./${applicationName}/target/${applicationName}.war\""");
+                            def startedBuild = build.startBuild("--from-file=\"./${applicationName}/target/${applicationName}.war\"");
                             startedBuild.logs('-f');
                             echo startedBuild.object().status.latestVersion;                            
                         }
