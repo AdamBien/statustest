@@ -35,7 +35,7 @@ pipeline{
                             def build = openshift.selector("bc", applicationName);
                             def startedBuild = build.startBuild("--from-file=\"./${applicationName}/target/${applicationName}.war\"");
                             startedBuild.logs('-f');
-                            echo "${applicationName} build status: ${startedBuild.object().status.latestVersion}";                            
+                            echo "${applicationName} build status: ${startedBuild.object().status}";                            
                         }
                     }
                 }
