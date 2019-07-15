@@ -3,6 +3,7 @@ package com.airhacks.statustest.boundary;
 
 import static java.util.Optional.ofNullable;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.OPTIONS;
@@ -22,27 +23,27 @@ public class StatusesResources {
     private static final String RESPONSE = "+";
 
     @GET
-    public Response get(@HeaderParam(STATUS_PARAM) int status) {
+    public Response get(@HeaderParam(STATUS_PARAM) @DefaultValue("200") int status) {
         return createResponse(status);
     }
 
     @POST
-    public Response post(String body, @HeaderParam(STATUS_PARAM) int status) {
+    public Response post(String body, @HeaderParam(STATUS_PARAM) @DefaultValue("200") int status) {
         return createResponseWithBody(body, status);
     }
 
     @PUT
-    public Response put(String body, @HeaderParam(STATUS_PARAM) int status) {
+    public Response put(String body, @HeaderParam(STATUS_PARAM) @DefaultValue("200") int status) {
         return createResponseWithBody(body, status);
     }
 
     @DELETE
-    public Response delete(@HeaderParam(STATUS_PARAM) int status) {
+    public Response delete(@HeaderParam(STATUS_PARAM) @DefaultValue("200") int status) {
         return createResponse(status);
     }
 
     @OPTIONS
-    public Response options(@HeaderParam(STATUS_PARAM) int status) {
+    public Response options(@HeaderParam(STATUS_PARAM) @DefaultValue("200") int status) {
         return createResponse(status);
     }
 
