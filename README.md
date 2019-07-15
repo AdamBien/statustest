@@ -5,7 +5,11 @@ HTTP Status Test Service
 
 # Installation
 
-docker run -d -p 8080:8080 airhacks/statustest
+`docker run -d -p 8080:8080 airhacks/statustest`
+
+or
+
+download the [latest WAR (4 kB)](https://github.com/AdamBien/statustest/releases) and deploy it on a Java EE 7 application server running on Java 8.
 
 # Usage
 
