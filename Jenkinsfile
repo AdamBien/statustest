@@ -29,19 +29,17 @@ pipeline{
             } 
             stage('s2i build'){
                 steps{
-                    openshiftBuild(bldCfg:applicationName,showBuildLogs:"false");
+                script{
+                    openshift.withCluster(){
+                        openshift.withProject(){
+                            def build = openshift.selector("bc", applicationName);
+                            def startedBuild = build.startBuild('--from-file="./${applicationName}/target/${applicationName}.war"');
+                            startedBuild.logs('-f');
+                            echo startedBuild.object().status.latestVersion;                            
+                        }
+                    }
                 }
-            }
-            stage('perform scaling') {
-                steps{
-                    openshiftScale(depCfg: applicationName,replicaCount: replicaCount,verifyReplicaCount:"true");
-                }
-            }                
-            stage('verify service') {
-                steps{
-                    openshiftVerifyService(svcName: applicationName);
-                }
-            }                
+            }            }
             stage('system tests') {
                 steps{
                     sh script: "cd ${applicationNameST} && failsafe:integration-test failsafe:verify"   
