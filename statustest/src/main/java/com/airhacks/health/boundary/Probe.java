@@ -6,8 +6,8 @@ import org.eclipse.microprofile.health.Health;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 
-@ApplicationScoped
 @Health
+@ApplicationScoped
 public class Probe implements HealthCheck {
 
     @Override
