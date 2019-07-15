@@ -97,14 +97,14 @@ public class StatusesResourceIT {
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 delete();
-        assertThat(response, is(expected));
+        assertThat(response.getStatus(), is(expected));
 
         expected = 203;
         response = tut.
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 delete();
-        assertThat(response, is(expected));
+        assertThat(response.getStatus(), is(expected));
     }
 
     @Test
@@ -115,14 +115,14 @@ public class StatusesResourceIT {
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 options();
-        assertThat(response, is(expected));
+        assertThat(response.getStatus(), is(expected));
 
         expected = 203;
         response = tut.
                 request().
                 header(STATUS_HEADER_PARAM, expected).
                 options();
-        assertThat(response, is(expected));
+        assertThat(response.getStatus(), is(expected));
     }
 
 }
