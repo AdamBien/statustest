@@ -9,7 +9,7 @@ pipeline{
     stages{
             stage('build') {
                 steps{
-                    sh script: "cd ${applicationName} && mvn -DskipTests package"   
+                    sh script: "cd ${applicationName} && mvn -DskipTests clean package"   
                 }
             }
             stage('build system tests') {
