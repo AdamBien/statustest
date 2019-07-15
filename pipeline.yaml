@@ -1,0 +1,20 @@
+kind: BuildConfig
+apiVersion: v1
+metadata:
+  name: statustest-pipeline
+  labels:
+    app: statustest
+spec:
+  resources:
+    requests:
+      cpu: 2000Mi
+      memory: 1G
+  source:
+    git:
+      ref: master
+      uri: "https://github.com/AdamBien/statustest.git"
+    type: Git
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: Jenkinsfile
+    type: JenkinsPipeline
