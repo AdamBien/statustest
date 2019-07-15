@@ -15,9 +15,9 @@ spec:
       uri: "https://github.com/AdamBien/statustest.git"
     type: Git
   strategy:
+    type: JenkinsPipeline
     jenkinsPipelineStrategy:
       jenkinsfilePath: Jenkinsfile
-    type: JenkinsPipeline
-    env:
-    - name: SERVICE_URI
-      value: http://statustest.airhacks.svc:8080
+      env:
+      - name: SERVICE_URI
+        value: http://statustest.airhacks.svc:8080      
