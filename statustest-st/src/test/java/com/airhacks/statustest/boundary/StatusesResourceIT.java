@@ -17,13 +17,20 @@ import org.junit.Test;
  */
 public class StatusesResourceIT {
 
+    static final String SERVICE_URI = "SERVICE_URI";
     static final String STATUS_HEADER_PARAM = "status";
+
     private WebTarget tut;
 
     @Before
     public void initClient() {
-        this.tut = ClientBuilder.newClient().target("http://localhost:8080/statustest/resources/statuses");
+        this.tut = ClientBuilder.newClient().target(serviceUri() + "/statustest/resources/statuses");
     }
+
+    static String serviceUri() {
+        return System.getenv().getOrDefault(SERVICE_URI, System.getProperty(SERVICE_URI, "http://localhost:8080"));
+    }
+
 
 
     @Test
