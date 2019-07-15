@@ -39,7 +39,20 @@ pipeline{
                         }
                     }
                 }
-            }            }
+            }            
+            }
+            stage('wait until available'){
+                steps{
+                    script{
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                def dc = openshift.selector('dc',applicationName )
+                                dc.rollout().status()
+                            }
+                        }                
+                    }
+                }
+            }
             stage('system tests') {
                 steps{
                     sh script: "cd ${applicationNameST} && mvn failsafe:integration-test failsafe:verify"   
