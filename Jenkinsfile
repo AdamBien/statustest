@@ -35,7 +35,7 @@ pipeline{
                             def build = openshift.selector("bc", applicationName);
                             def startedBuild = build.startBuild("--from-file=\"./${applicationName}/target/${applicationName}.war\"");
                             startedBuild.logs('-f');
-                            echo startedBuild.object().status.latestVersion;                            
+                            echo "${applicationName} build status: ${startedBuild.object().status.latestVersion}";                            
                         }
                     }
                 }
@@ -50,6 +50,22 @@ pipeline{
                                 dc.rollout().status()
                             }
                         }                
+                    }
+                }
+            }
+            stage('verify service connectivity'){
+                steps{
+                    script{
+                        openshift.withCluster() {
+                            openshift.withProject() {
+                                def connected = openshift.verifyService(applicationName)
+                                if (connected) {
+                                    echo "Successfully connected to ${applicationName}"
+                                } else {
+                                    echo "Unable to connect to ${applicationName}"
+                                }
+                            }
+                        }                        
                     }
                 }
             }
