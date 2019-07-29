@@ -45,9 +45,8 @@ input
 
 # Installing statustest "as-a-service" on openshift
 
-Statustest is installed with (Payara Micro S2I)[https://adambien.github.io/s2i-payara-micro/]:
+Statustest is installed with [Payara Micro S2I](https://adambien.github.io/s2i-payara-micro/):
 
-[![Statustest Build Pipeline](https://i.ytimg.com/vi/ImSuIoRcm-Y/mq
-default.jpg)](https://www.youtube.com/embed/ImSuIoRcm-Y?rel=0)
+[![Statustest Build Pipeline](https://i.ytimg.com/vi/ImSuIoRcm-Y/mqdefault.jpg)](https://www.youtube.com/embed/ImSuIoRcm-Y?rel=0)
 
-See you at (airhacks.com)[http://airhacks.com]
+See you at [airhacks.com](http://airhacks.com)
