@@ -40,8 +40,12 @@ Content-Length: 5
 
 input
 
+```
 
-# Installing statustes as-a-service
+
+# Installing statustest "as-a-service" on openshift
+
+Statustest is installed with (Payara Micro S2I)[https://adambien.github.io/s2i-payara-micro/]:
 
 [![Statustest Build Pipeline](https://i.ytimg.com/vi/ImSuIoRcm-Y/mq
 default.jpg)](https://www.youtube.com/embed/ImSuIoRcm-Y?rel=0)
