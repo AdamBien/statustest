@@ -40,3 +40,10 @@ Content-Length: 5
 
 input
 
+
+# Installing statustes as-a-service
+
+[![Statustest Build Pipeline](https://i.ytimg.com/vi/ImSuIoRcm-Y/mq
+default.jpg)](https://www.youtube.com/embed/ImSuIoRcm-Y?rel=0)
+
+See you at (airhacks.com)[http://airhacks.com]
